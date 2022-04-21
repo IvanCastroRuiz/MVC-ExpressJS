@@ -10,17 +10,16 @@ dotenv.config({ path: '.env' });
 const app = express();
 
 
-// Conexion Base de datos
-conectarDB();
-
-app.use('/', router);
-
 // middlewares
 // Se utiliza para realizar la comunicacion entre el servidor del frontend y el backend
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 
+app.use('/', router);
+
+// Conexion Base de datos
+conectarDB();
 
 app.get('/', (req, res) => {
     res.send(`El servidor esta funcionando en el puerto ${port} y host ${host}`);

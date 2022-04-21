@@ -5,8 +5,9 @@ import {
     home,
     create,
     read,
+    readId,
     actualizar,
-    deleted
+    eliminar
 } from '../controller/producto.js';
 
 router
@@ -17,16 +18,21 @@ router
     .route('/create')
     .post(create)
 
+
 router
     .route('/read')
     .get(read)
 
 router
-    .route('/update')
+    .route('/read/:id')
+    .get(readId)
+
+router
+    .route('/update/:id')
     .put(actualizar)
 
 router
-    .route('/delete')
-    .delete(deleted)
+    .route('/eliminar/:id')
+    .delete(eliminar)
 
 export default router;
