@@ -25,7 +25,8 @@ const readId = async (req, res) =>{
 };
 
 const create = async (req, res) =>{ 
-          
+      
+    //console.log(req.body);
     const producto = new Producto(req.body);
     
     try {

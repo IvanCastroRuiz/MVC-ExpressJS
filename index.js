@@ -6,8 +6,8 @@ import router from './router/router.js';
 
 const port = process.env.port || 4000;
 const host = process.env.HOST || '0.0.0.0';
-//dotenv.config({ path: '.env' });
-dotenv.config();
+dotenv.config({ path: '.env' });
+//dotenv.config();
 const app = express();
 
 
@@ -27,6 +27,7 @@ const corsOptions = {
 
 //app.use(cors(corsOptions)); 
 app.use(cors()); 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/', router);
